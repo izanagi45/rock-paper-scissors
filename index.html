@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+
+    <script>
+
+        let humanScore = 0;
+        let computerScore = 0;
+       
+      
+      function getComputerChoice() {
+
+        
+        let randomNum = Math.random() * 3  ;
+
+       if (randomNum >= 0 && randomNum < 1 ){
+            return "rock";
+        }
+
+        else if (randomNum >= 1 && randomNum < 2) {
+            return "paper";
+        }
+
+        else {
+             return "scissors";                     
+        }
+    }
+
+            
+   
+    
+    function getHumanChoice () {
+        let choice = prompt("Please enter Rock,Paper or Sciccors");
+        return choice;
+    }
+
+    
+
+    function playRound(humanChoice,computerChoice) {  
+
+       
+
+        console.log(`you choose: ${humanChoice} `);
+        console.log(`computer choose : ${computerChoice} `);
+
+        if (humanChoice === computerChoice) {
+            return "Draw";
+        }
+
+        else if (humanChoice === "rock" && computerChoice === "paper"){
+           computerScore ++
+            return "you lose" ;
+        }
+
+        else if (humanChoice === "paper" && computerChoice === "scissors"){
+            computerScore ++
+            return "you lose";
+        }
+
+        else if (humanChoice === "scissors" && computerChoice === "rock"){
+            computerScore ++
+            return "you lose";
+        }
+
+        else if (computerChoice === "rock" && humanChoice === "paper"){
+            humanScore ++
+            return "you win";
+        }
+
+        else if (computerChoice === "paper" && humanChoice=== "scissors"){
+            humanScore ++
+            return "you win";
+        }
+
+        else if (computerChoice === "scissors" && humanChoice === "rock"){
+            humanScore ++
+            return "you win";
+        }
+
+        
+
+
+    }
+
+
+  
+
+    
+    
+     
+
+    function playGame() {
+        
+        let computerChoice = getComputerChoice(); 
+        let humanChoice = getHumanChoice();
+        console.log (playRound(humanChoice,computerChoice))
+        console.log(humanScore);
+        console.log(computerScore);
+    }
+
+    playGame();
+    playGame(); 
+    playGame();
+    playGame();
+
+
+   
+   
+    
+    
+    </script>
+    
+</body>
+</html>
